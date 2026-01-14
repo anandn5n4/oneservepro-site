@@ -1,16 +1,270 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    icon: "💻",
+    title: "Web Development",
+    description: "Custom websites and web applications built with modern frameworks, optimized for performance and SEO."
+  },
+  {
+    icon: "⚙️",
+    title: "Automation & Integration",
+    description: "Streamline your workflows with custom scripts, API integrations, and process automation solutions."
+  },
+  {
+    icon: "🛠️",
+    title: "Technical Consulting",
+    description: "Expert guidance on architecture decisions, tech stack selection, and project planning."
+  },
+  {
+    icon: "📊",
+    title: "Data & Analytics",
+    description: "Transform raw data into actionable insights with dashboards, reports, and data pipelines."
+  }
+];
 ---
 
 <BaseLayout>
-  <main style="padding: 4rem; max-width: 1100px; margin: auto;">
-    <h1 style="font-size: 3rem;">
-      OneServePro
-    </h1>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">Available for new projects</span>
+        <h1 class="hero-title">
+          Digital Services Built for 
+          <span class="accent">Clarity & Performance</span>
+        </h1>
+        <p class="hero-subtitle">
+          I help businesses and individuals ship reliable software, automate workflows, 
+          and solve technical challenges — with transparency and long-term thinking.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p style="font-size: 1.25rem; color: #6b7280; max-width: 600px;">
-      Reliable digital and professional services, built with clarity,
-      performance, and long-term thinking.
-    </p>
-  </main>
+  <!-- Services Section -->
+  <section id="services" class="services section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">
+          Focused offerings designed to deliver real value — no fluff, no unnecessary complexity.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="section-title">Why Work With Me</h2>
+        <p class="section-subtitle">
+          I value clear communication, honest timelines, and solutions that actually work.
+          Every project is treated as a partnership — your success is my success.
+        </p>
+        <ul class="about-list">
+          <li><strong>Transparent Process:</strong> Regular updates, no surprises</li>
+          <li><strong>Quality Focus:</strong> Clean code, tested solutions</li>
+          <li><strong>Long-term Thinking:</strong> Built to scale and maintain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="section-title">Let's Talk</h2>
+        <p class="section-subtitle">
+          Have a project in mind or need technical expertise? 
+          Reach out and let's discuss how I can help.
+        </p>
+        <a href="mailto:hello@oneservepro.com" class="btn btn-primary">
+          hello@oneservepro.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 OneServePro. All rights reserved.</p>
+    </div>
+  </footer>
 </BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--bg-tertiary);
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Services */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header .section-subtitle {
+    margin: 0.5rem auto 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* About */
+  .about-content {
+    max-width: 700px;
+  }
+
+  .about-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .about-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .about-list li:last-child {
+    border-bottom: none;
+  }
+
+  .about-list strong {
+    color: var(--text-primary);
+  }
+
+  /* Contact */
+  .contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-content .section-subtitle {
+    margin: 0.5rem auto 2rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero {
+      padding-top: 6rem;
+      min-height: auto;
+      padding-bottom: 3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.0625rem;
+    }
+
+    .section {
+      padding: 3.5rem 0;
+    }
+  }
+</style>

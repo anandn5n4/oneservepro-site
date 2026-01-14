@@ -1,15 +1,39 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
 ---
 
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OneServePro</title>
+    <meta name="description" content="OneServePro — Reliable digital and professional services built with clarity, performance, and long-term thinking." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>OneServePro — Digital & Professional Services</title>
+
+    <!-- Prevent flash of wrong theme -->
+    <script is:inline>
+      const theme = localStorage.getItem("theme") || 
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
   </head>
 
   <body>
+    <Header />
     <slot />
+
+    <!-- Theme toggle script -->
+    <script is:inline>
+      const toggle = document.getElementById("theme-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const current = document.documentElement.getAttribute("data-theme");
+          const next = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+      }
+    </script>
   </body>
 </html>
