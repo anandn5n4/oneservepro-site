@@ -1,26 +1,48 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const services = [
+const serviceVerticals = [
   {
     icon: "💻",
-    title: "Web Development",
-    description: "Custom websites and web applications built with modern frameworks, optimized for performance and SEO."
+    label: "DIGITAL",
+    title: "Digital Services",
+    description: "Web development, APIs, automation, and technical consulting. Modern solutions built for scale, security, and long-term success.",
+    href: "/services/digital",
+    cta: "Explore Digital Services",
+    highlights: ["Web Development", "Backend & APIs", "Automation"]
   },
   {
-    icon: "⚙️",
-    title: "Automation & Integration",
-    description: "Streamline your workflows with custom scripts, API integrations, and process automation solutions."
+    icon: "🏠",
+    label: "LOCAL",
+    title: "Local Services",
+    description: "Everyday convenience delivered with care. Quality local services with simple booking and reliable execution.",
+    href: "/services/local",
+    cta: "Explore Local Services",
+    highlights: ["Cloth Ironing", "More Coming Soon"]
+  }
+];
+
+const stats = [
+  { value: "100%", label: "Client Focused" },
+  { value: "24h", label: "Response Time" },
+  { value: "∞", label: "Commitment" }
+];
+
+const principles = [
+  {
+    icon: "✦",
+    title: "Clarity First",
+    description: "No jargon, no hidden costs. Just clear communication and straightforward solutions."
   },
   {
-    icon: "🛠️",
-    title: "Technical Consulting",
-    description: "Expert guidance on architecture decisions, tech stack selection, and project planning."
+    icon: "◆",
+    title: "Quality Driven",
+    description: "Every service — digital or physical — meets the same high standard of excellence."
   },
   {
-    icon: "📊",
-    title: "Data & Analytics",
-    description: "Transform raw data into actionable insights with dashboards, reports, and data pipelines."
+    icon: "●",
+    title: "Built to Last",
+    description: "We think long-term. Solutions designed for reliability, not quick fixes."
   }
 ];
 ---
@@ -28,77 +50,120 @@ const services = [
 <BaseLayout>
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-content">
-        <span class="hero-badge">Available for new projects</span>
+        <div class="hero-label">
+          <span class="dot"></span>
+          Welcome to OneServePro
+        </div>
         <h1 class="hero-title">
-          Digital Services Built for 
-          <span class="accent">Clarity & Performance</span>
+          Where Quality Meets<br/>
+          <span class="gradient-text">Convenience</span>
         </h1>
         <p class="hero-subtitle">
-          I help businesses and individuals ship reliable software, automate workflows, 
-          and solve technical challenges — with transparency and long-term thinking.
+          A modern service company delivering excellence across two domains — 
+          <strong>professional digital solutions</strong> for businesses and 
+          <strong>reliable local services</strong> for everyday life.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in Touch</a>
-          <a href="#services" class="btn btn-secondary">View Services</a>
+          <a href="/services" class="btn btn-primary btn-lg">
+            Discover Our Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/contact" class="btn btn-ghost">Contact Us</a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="hero-stats">
+          {stats.map((stat) => (
+            <div class="stat-item">
+              <span class="stat-value">{stat.value}</span>
+              <span class="stat-label">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="services section">
+  <!-- Service Verticals -->
+  <section class="verticals section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Services</h2>
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Two Verticals. One Standard.</h2>
         <p class="section-subtitle">
-          Focused offerings designed to deliver real value — no fluff, no unnecessary complexity.
+          Whether you need cutting-edge digital solutions or dependable local services, 
+          we bring the same dedication to quality.
         </p>
       </div>
 
-      <div class="services-grid">
-        {services.map((service) => (
-          <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
-            <h3 class="service-title">{service.title}</h3>
-            <p class="service-description">{service.description}</p>
+      <div class="verticals-grid">
+        {serviceVerticals.map((vertical) => (
+          <a href={vertical.href} class="vertical-card">
+            <div class="card-header">
+              <span class="card-label">{vertical.label}</span>
+              <span class="card-icon">{vertical.icon}</span>
+            </div>
+            <h3 class="card-title">{vertical.title}</h3>
+            <p class="card-description">{vertical.description}</p>
+            <div class="card-highlights">
+              {vertical.highlights.map((item) => (
+                <span class="highlight-tag">{item}</span>
+              ))}
+            </div>
+            <span class="card-cta">
+              {vertical.cta}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="why section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Principles That Guide Everything We Do</h2>
+      </div>
+
+      <div class="principles-grid">
+        {principles.map((principle) => (
+          <div class="principle-card">
+            <span class="principle-icon">{principle.icon}</span>
+            <h4 class="principle-title">{principle.title}</h4>
+            <p class="principle-description">{principle.description}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about section">
+  <!-- CTA Section -->
+  <section class="cta-section section">
     <div class="container">
-      <div class="about-content">
-        <h2 class="section-title">Why Work With Me</h2>
-        <p class="section-subtitle">
-          I value clear communication, honest timelines, and solutions that actually work.
-          Every project is treated as a partnership — your success is my success.
-        </p>
-        <ul class="about-list">
-          <li><strong>Transparent Process:</strong> Regular updates, no surprises</li>
-          <li><strong>Quality Focus:</strong> Clean code, tested solutions</li>
-          <li><strong>Long-term Thinking:</strong> Built to scale and maintain</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <div class="container">
-      <div class="contact-content">
-        <h2 class="section-title">Let's Talk</h2>
-        <p class="section-subtitle">
-          Have a project in mind or need technical expertise? 
-          Reach out and let's discuss how I can help.
-        </p>
-        <a href="mailto:hello@oneservepro.com" class="btn btn-primary">
-          hello@oneservepro.com
-        </a>
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Get Started?</h2>
+          <p class="cta-subtitle">
+            Let's discuss how OneServePro can help you — whether it's building 
+            your next digital product or simplifying your daily life.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+          <a href="/about" class="btn btn-secondary">Learn About Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -106,7 +171,13 @@ const services = [
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 OneServePro. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-icon">◆</span>
+          <span>OneServePro</span>
+        </div>
+        <p class="footer-copy">&copy; 2026 OneServePro. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 </BaseLayout>
@@ -118,153 +189,490 @@ const services = [
     display: flex;
     align-items: center;
     padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse at 70% 30%, var(--accent) 0%, transparent 50%);
+    opacity: 0.08;
+    pointer-events: none;
   }
 
   .hero-content {
     max-width: 720px;
+    position: relative;
+    z-index: 1;
   }
 
-  .hero-badge {
-    display: inline-block;
-    padding: 0.375rem 0.875rem;
-    background: var(--bg-tertiary);
-    color: var(--accent);
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    border-radius: 2rem;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
   }
 
   .hero-title {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
   }
 
-  .accent {
-    color: var(--accent);
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent) 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1875rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 2rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-subtitle strong {
+    color: var(--text-primary);
   }
 
   .hero-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 4rem;
   }
 
-  /* Services */
+  .btn-lg {
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .btn-lg svg {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-lg:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 1rem 1.75rem;
+  }
+
+  .btn-ghost:hover {
+    background: var(--bg-secondary);
+    border-color: var(--text-muted);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Section Styles */
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
-  .section-header .section-subtitle {
-    margin: 0.5rem auto 0;
+  .section-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
   }
 
-  .services-grid {
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Verticals */
+  .verticals {
+    background: var(--bg-secondary);
+  }
+
+  .verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .vertical-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vertical-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #60a5fa);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .vertical-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+  }
+
+  .vertical-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    padding: 0.375rem 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: 0.25rem;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.375rem 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: 2rem;
+    color: var(--text-secondary);
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .card-cta svg {
+    transition: transform 0.2s ease;
+  }
+
+  .vertical-card:hover .card-cta svg {
+    transform: translateX(4px);
+  }
+
+  /* Principles */
+  .principles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
-  .service-card {
+  .principle-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    padding: 2rem;
+    border-radius: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .service-card:hover {
+  .principle-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--card-shadow);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 1rem;
+  .principle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    color: var(--accent);
+    background: var(--bg-tertiary);
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 
-  .service-title {
+  .principle-title {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
 
-  .service-description {
+  .principle-description {
     color: var(--text-secondary);
     font-size: 0.9375rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  /* About */
-  .about-content {
-    max-width: 700px;
+  /* CTA Section */
+  .cta-section {
+    padding-bottom: 6rem;
   }
 
-  .about-list {
-    list-style: none;
-    margin-top: 2rem;
-  }
-
-  .about-list li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-secondary);
-  }
-
-  .about-list li:last-child {
-    border-bottom: none;
-  }
-
-  .about-list strong {
-    color: var(--text-primary);
-  }
-
-  /* Contact */
-  .contact-content {
+  .cta-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  .contact-content .section-subtitle {
-    margin: 0.5rem auto 2rem;
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+  }
+
+  .cta-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
   }
 
   /* Footer */
   .footer {
     padding: 2rem 0;
-    text-align: center;
     border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .brand-icon {
+    color: var(--accent);
+    font-size: 1.25rem;
+  }
+
+  .footer-copy {
     color: var(--text-muted);
     font-size: 0.875rem;
   }
 
   /* Responsive */
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .hero {
       padding-top: 6rem;
       min-height: auto;
-      padding-bottom: 3rem;
+      padding-bottom: 4rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.0625rem;
+    .hero-bg {
+      width: 100%;
+      opacity: 0.05;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
     }
 
     .section {
-      padding: 3.5rem 0;
+      padding: 4rem 0;
+    }
+
+    .verticals-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vertical-card {
+      padding: 2rem;
+    }
+
+    .cta-card {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      flex: 1 1 80px;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-actions .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

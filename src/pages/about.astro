@@ -1,0 +1,213 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const values = [
+  {
+    title: "Clarity",
+    description: "We believe in straightforward communication, transparent pricing, and solutions that make sense."
+  },
+  {
+    title: "Quality",
+    description: "Every service we offer is held to a high standard — whether digital or physical, we deliver excellence."
+  },
+  {
+    title: "Reliability",
+    description: "Consistent, dependable service that you can count on. We honor our commitments."
+  },
+  {
+    title: "Long-term Thinking",
+    description: "We build relationships, not just transactions. Our solutions are designed to last."
+  }
+];
+---
+
+<BaseLayout>
+  <section class="about-page">
+    <div class="container">
+      <!-- Header -->
+      <div class="page-header">
+        <span class="breadcrumb">
+          <a href="/">Home</a> / About
+        </span>
+        <h1 class="page-title">About OneServePro</h1>
+        <p class="page-subtitle">
+          A unified brand delivering quality services across digital and physical domains.
+        </p>
+      </div>
+
+      <!-- Mission -->
+      <div class="mission-section">
+        <div class="mission-content">
+          <h2 class="section-title">What We Do</h2>
+          <p class="mission-text">
+            OneServePro operates across two distinct verticals: <strong>Digital Services</strong> for 
+            businesses needing professional web development, automation, and technical consulting, 
+            and <strong>Local Services</strong> for everyday conveniences delivered with care and quality.
+          </p>
+          <p class="mission-text">
+            While the services differ, the approach remains the same — clear communication, 
+            honest pricing, and a genuine commitment to delivering value.
+          </p>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="values-section">
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-grid">
+          {values.map((value) => (
+            <div class="value-item">
+              <h4 class="value-title">{value.title}</h4>
+              <p class="value-description">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">Ready to Work With Us?</h2>
+        <p class="cta-subtitle">
+          Whether you need digital expertise or local convenience, we're here to help.
+        </p>
+        <div class="cta-buttons">
+          <a href="/services" class="btn btn-primary">View Services</a>
+          <a href="/contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Mission */
+  .mission-section {
+    margin-bottom: 4rem;
+    max-width: 720px;
+  }
+
+  .mission-text {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-text strong {
+    color: var(--text-primary);
+  }
+
+  /* Values */
+  .values-section {
+    margin-bottom: 4rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .value-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.75rem;
+  }
+
+  .value-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+
+  .value-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .about-page {
+      padding-top: 6rem;
+    }
+
+    .cta-section {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

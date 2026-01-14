@@ -1,0 +1,273 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    icon: "🌐",
+    title: "Website Development",
+    description: "Custom websites built with modern frameworks. Fast load times, mobile-first design, SEO-ready, and easy to maintain.",
+    features: ["Static & Dynamic Sites", "Performance Optimized", "SEO Best Practices"]
+  },
+  {
+    icon: "⚙️",
+    title: "Backend & APIs",
+    description: "Robust server-side systems, REST APIs, and integrations. Designed for scalability, security, and reliability.",
+    features: ["API Development", "Database Design", "Third-Party Integrations"]
+  },
+  {
+    icon: "🔒",
+    title: "Security & Performance",
+    description: "Audit existing systems, identify vulnerabilities, and optimize for speed. Keep your digital assets safe and fast.",
+    features: ["Security Audits", "Performance Tuning", "Infrastructure Review"]
+  },
+  {
+    icon: "📊",
+    title: "Data & Automation",
+    description: "Transform manual workflows into automated pipelines. Dashboards, reports, and data processing solutions.",
+    features: ["Process Automation", "Data Pipelines", "Reporting Dashboards"]
+  }
+];
+
+const principles = [
+  {
+    title: "Clarity Over Complexity",
+    description: "Solutions that are easy to understand, maintain, and extend."
+  },
+  {
+    title: "Built to Last",
+    description: "Code and architecture designed for long-term reliability."
+  },
+  {
+    title: "Transparent Process",
+    description: "Regular updates, honest timelines, and no surprises."
+  }
+];
+---
+
+<BaseLayout>
+  <section class="digital-services">
+    <div class="container">
+      <!-- Header -->
+      <div class="page-header">
+        <span class="breadcrumb">
+          <a href="/">Home</a> / <a href="/services">Services</a> / Digital
+        </span>
+        <h1 class="page-title">Digital Services</h1>
+        <p class="page-subtitle">
+          Professional development and technical consulting for businesses 
+          that value quality, performance, and long-term thinking.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="services-section">
+        <div class="services-grid">
+          {services.map((service) => (
+            <div class="service-card">
+              <span class="service-icon">{service.icon}</span>
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+              <ul class="service-features">
+                {service.features.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Principles -->
+      <div class="principles-section">
+        <h2 class="section-title">How I Work</h2>
+        <div class="principles-grid">
+          {principles.map((principle) => (
+            <div class="principle-item">
+              <h4 class="principle-title">{principle.title}</h4>
+              <p class="principle-description">{principle.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">Ready to Start?</h2>
+        <p class="cta-subtitle">
+          Let's discuss your project requirements and find the right solution.
+        </p>
+        <a href="/contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .digital-services {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Services Grid */
+  .services-section {
+    margin-bottom: 5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .service-features li {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: 1rem;
+    color: var(--text-secondary);
+  }
+
+  /* Principles */
+  .principles-section {
+    margin-bottom: 5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+
+  .principle-item {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .principle-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+
+  .principle-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .digital-services {
+      padding-top: 6rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

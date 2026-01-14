@@ -1,0 +1,244 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const contactMethods = [
+  {
+    icon: "✉️",
+    title: "Email",
+    value: "hello@oneservepro.com",
+    href: "mailto:hello@oneservepro.com",
+    description: "Best for project inquiries and detailed questions"
+  }
+];
+---
+
+<BaseLayout>
+  <section class="contact-page">
+    <div class="container">
+      <!-- Header -->
+      <div class="page-header">
+        <span class="breadcrumb">
+          <a href="/">Home</a> / Contact
+        </span>
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-subtitle">
+          Have a project in mind or need assistance? Reach out and let's start a conversation.
+        </p>
+      </div>
+
+      <!-- Contact Methods -->
+      <div class="contact-section">
+        <div class="contact-grid">
+          {contactMethods.map((method) => (
+            <a href={method.href} class="contact-card">
+              <span class="contact-icon">{method.icon}</span>
+              <h3 class="contact-title">{method.title}</h3>
+              <p class="contact-value">{method.value}</p>
+              <p class="contact-description">{method.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Response Info -->
+      <div class="info-section">
+        <div class="info-content">
+          <h2 class="section-title">What to Expect</h2>
+          <ul class="info-list">
+            <li>
+              <strong>Response Time:</strong> I typically respond within 24-48 hours on business days.
+            </li>
+            <li>
+              <strong>Initial Discussion:</strong> We'll discuss your needs, timeline, and budget to see if we're a good fit.
+            </li>
+            <li>
+              <strong>No Obligation:</strong> Initial consultations are always free. Let's just talk first.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Services Reminder -->
+      <div class="services-reminder">
+        <p class="reminder-text">
+          Not sure which service you need? 
+          <a href="/services">Browse our services</a> to find the right fit.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Contact Cards */
+  .contact-section {
+    margin-bottom: 4rem;
+  }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2.5rem 3rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--accent);
+  }
+
+  .contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-value {
+    font-size: 1.125rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  /* Info Section */
+  .info-section {
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .info-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+  }
+
+  .info-list {
+    list-style: none;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .info-list strong {
+    color: var(--text-primary);
+  }
+
+  /* Services Reminder */
+  .services-reminder {
+    text-align: center;
+  }
+
+  .reminder-text {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .reminder-text a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .reminder-text a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .contact-page {
+      padding-top: 6rem;
+    }
+
+    .contact-card {
+      padding: 2rem;
+    }
+
+    .info-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
