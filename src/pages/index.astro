@@ -176,7 +176,10 @@ const principles = [
           <span class="brand-icon">◆</span>
           <span>OneServePro</span>
         </div>
-        <p class="footer-copy">&copy; 2026 OneServePro. All rights reserved.</p>
+        <div class="footer-info">
+          <p class="footer-name">Anand N</p>
+          <p class="footer-copy">&copy; 2026 OneServePro. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
@@ -366,7 +369,7 @@ const principles = [
   .vertical-card {
     display: flex;
     flex-direction: column;
-    background: var(--bg-primary);
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 1rem;
     padding: 2.5rem;
@@ -375,6 +378,7 @@ const principles = [
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--card-shadow);
   }
 
   .vertical-card::before {
@@ -391,7 +395,7 @@ const principles = [
 
   .vertical-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     border-color: var(--accent);
   }
 
@@ -481,11 +485,12 @@ const principles = [
     border: 1px solid var(--border);
     border-radius: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--card-shadow);
   }
 
   .principle-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   }
 
   .principle-icon {
@@ -598,9 +603,20 @@ const principles = [
     font-size: 1.25rem;
   }
 
+  .footer-info {
+    text-align: right;
+  }
+
+  .footer-name {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
   .footer-copy {
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 
   /* Responsive */
